@@ -81,5 +81,5 @@ jobs:
         with:
           app-name: 'promotion-engine-tool-func'
           slot-name: 'Production'
-          package: release.zip
+          package: .
           
