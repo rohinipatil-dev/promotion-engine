@@ -6,13 +6,9 @@ from typing import Any, Dict, List, Optional
 
 import azure.functions as func
 
-
-PROMOTIONS_PATH = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.dirname(__file__))),
-    "data",
-    "promotions.json",
+PROMOTIONS_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "data", "promotions.json")
 )
-
 
 def load_promotions() -> List[Dict[str, Any]]:
     try:
