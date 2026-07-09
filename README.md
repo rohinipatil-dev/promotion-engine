@@ -130,8 +130,8 @@ promotion-engine/
 │   │       ├── function.json
 │   │       ├── index.py
 │   │       └── requirements.txt
-│   └── data/
-│       └── promotions.json
+│       └── data/
+│           └── promotions.json
 │
 └── tests/
     └── test_promotions.py
