@@ -1,0 +1,70 @@
+openapi: 3.0.1
+info:
+  title: Promotion Engine API
+  version: 1.0.0
+  description: API for selecting the best promotion for a customer scenario.
+
+servers:
+  - url: https://promotion-engine-tool-func.uaenorth.azurewebsites.net
+
+paths:
+  /api/get-promotions:
+    post:
+      summary: Get the best promotion for a customer scenario
+      operationId: getPromotions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                category:
+                  type: string
+                  description: Product category (e.g., sofa, bed)
+                customer_segment:
+                  type: string
+                  description: Customer segment (e.g., high_value, new_customer)
+                cart_value:
+                  type: number
+                  description: Cart value in AED
+                season:
+                  type: string
+                  description: Seasonal context (e.g., eid, diwali)
+                language:
+                  type: string
+                  description: Response language (e.g., en, ar)
+              required:
+                - category
+                - customer_segment
+                - cart_value
+                - season
+                - language
+      responses:
+        "200":
+          description: Promotion result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  promotion_id:
+                    type: string
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  discount_type:
+                    type: string
+                  discount_value:
+                    type: number
+                  valid_until:
+                    type: string
+                  terms:
+                    type: string
+                  language:
+                    type: string
+        "400":
+          description: Invalid request payload
+        "500":
+          description: Internal server error
