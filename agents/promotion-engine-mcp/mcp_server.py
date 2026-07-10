@@ -5,7 +5,7 @@ from mcp.server.fastmcp import FastMCP
 FUNCTION_KEY = os.getenv("PROMOTION_ENGINE_FUNC_APP_KEY")
 
 PROMOTION_ENGINE_URL = (
-    "https://promotion-engine-tool-func-ftc2d8buckf4dud8.uaenorth-01.azurewebsites.net/api/get-promotions"
+    "https://promotion-engine-tool-func-ftc2d8buckf4dud8.uaenorth-01.azurewebsites.net/api/get_promotions"
     f"?code={FUNCTION_KEY}"
 )
 
