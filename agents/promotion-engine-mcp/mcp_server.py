@@ -3,11 +3,11 @@ import requests
 from mcp.server.fastmcp import FastMCP
 
 FUNCTION_KEY = os.getenv("PROMOTION_ENGINE_FUNC_APP_KEY")
+
 PROMOTION_ENGINE_URL = (
     "https://promotion-engine-tool-func-ftc2d8buckf4dud8.uaenorth-01.azurewebsites.net/api/get-promotions"
     f"?code={FUNCTION_KEY}"
 )
-
 
 mcp = FastMCP(
     "promotion-engine-mcp",
@@ -35,6 +35,9 @@ def get_promotions(
         "season": season,
         "language": language,
     }
+    print("PROMOTION_ENGINE_URL:", PROMOTION_ENGINE_URL)
+    print("FUNCTION_KEY:", FUNCTION_KEY)
+    print("Calling promotion engine with params:", params)
 
     try:
         response = requests.post(PROMOTION_ENGINE_URL, json=params, timeout=10)
